@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hq.dao.GoodsDAO">
+	<resultMap type="Goods" id="goodMap">
+		<id column="id" property="id"/>
+		<result column="goods_name" property="goodsName"/>
+		<result column="english_name" property="englishName"/>
+		<result column="goods_size" property="goodsSize"/>
+		<result column="goods_money" property="goodsMoney"/>
+		<result column="goods_number" property="goodsNumber"/>
+		<result column="goods_taglib" property="goodsTaglib"/>
+		<result column="goods_pic" property="goodsPic"/>
+		<result column="brand_id" property="brand.id"/>
+		<result column="brand_name" property="brand.brandName"/>
+		<result column="type_id" property="type.id"/>
+		<result column="type_name" property="type.typeName"/>
+	</resultMap>
+
+	<select id="list" resultMap="goodMap">
+		select goods.*,goods_brand.brand_name,goods_type.type_name
+			from goods left join goods_brand on goods.brand_id=goods_brand.id
+			left join goods_type on goods.type_id=goods_type.id
+		<where>
+			display=1
+			<if test="mohu1!=null and mohu1!=''">
+				and goods.goods_name like concat('%',#{mohu1},'%')
+			</if>
+		</where>
+	
+	</select>
+</mapper>
