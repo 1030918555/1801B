@@ -1,6 +1,7 @@
 package com.hq.bean;
 
 public class Brand {
+	// 品牌
 	private Integer id;
 	private String brandName;
 	public Integer getId() {
