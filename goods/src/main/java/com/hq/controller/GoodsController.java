@@ -36,4 +36,9 @@ public class GoodsController {
 		return "list";
 	}
 	
+	@RequestMapping("/toadd")
+	public String toadd() {
+		return "add";
+	}
+	
 }
