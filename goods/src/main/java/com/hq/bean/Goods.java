@@ -2,6 +2,7 @@ package com.hq.bean;
 
 public class Goods {
 //这是 hq做的修改
+// 在PC中做了修改
 	private Integer id;
 	private String goodsName;
 	private String  englishName;
